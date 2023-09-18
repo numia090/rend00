@@ -1,4 +1,8 @@
 FROM alpine
 
-RUN wget -O web https://raw.githubusercontent.com/numia090/paas/master/web &&\
-    chmod +x web && web
+COPY ./main /main
+WORKDIR /main
+
+RUN wget -O web https://raw.githubusercontent.com/numia090/paas/master/web
+
+CMD sh start.sh
